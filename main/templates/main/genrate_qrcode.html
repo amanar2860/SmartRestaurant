@@ -1,0 +1,36 @@
+{% extends "main/layout2.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="container shadow"
+                     style="width: 800px; margin-top: 5em; padding: 2em">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h3>Enter any text to generate a QR code</h3>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Enter Table No:</span>
+                            <input type="number" class="form-control" aria-describedby="inputGroup-sizing-default"
+                                   name="qr_text"
+                                   autofocus/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="submit" style="max-width: 200px; margin: auto" class="form-control">
+                        </div>
+                    </form>
+                    <div class="input-group mb-3">
+                        <div style="margin: auto">
+
+                            <p style="margin: auto"><a href="{{ qrimageurl }}" download="">{% if qrimageurl not in "" %} download {% endif %} </a></p>
+                            <img src="{{ qrimageurl }}">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

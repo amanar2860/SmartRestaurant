@@ -1,0 +1,41 @@
+{% extends "main/layout2.html" %}
+{% block content %}
+<div class="cart">
+
+    <div class="row">
+    <h2>Category List</h2>
+        <div class="col-sm-12">
+            {% if categorys %}
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th>Images</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for catObj in categorys %}
+                    <tr>
+                        <td>{{ catObj.id }}</td>
+                        <td>{{ catObj.categoryname }} </td>
+                         <td>{{ catObj.imageurl }} </td>
+{#                       <td><a class="btn btn-primary" href="{% url 'main:category-update' catObj.slug %}">Update</a></td>#}
+{#                        <td><a class="btn btn-danger" href="{% url 'main:category-delete' catObj.slug %}">Delete</a></td>#}
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <h4 class="text-center">Sorry, you have not added any category yet!!!</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+

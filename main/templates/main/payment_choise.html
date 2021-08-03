@@ -1,0 +1,67 @@
+{% extends "main/layout.html" %}
+{% block content %}
+    <div class="home bg-danger">
+
+        <div class="container">
+            <h1 class="text-center text-light mb-3">Choose Option to Payment</h1>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card mb-2" style="height: fit-content; overflow: auto;">
+                        <img src="../media/cash.png" style="height: 250px;">
+                        <div class="card-body text-center">
+                            <a class="btn btn-primary" href="{% url 'main:ordered' %}" data-toggle="modal" data-target=".bd-example-modal-lg">CASH MODE</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card mb-2" style="height: fit-content; overflow: auto;">
+                        <img src="../media/onlinepay.png" style="height: 250px;">
+                        <div class="card-body text-center">
+                             <a class="btn btn-primary" href="{% url 'main:payment_view' %}" >ONLINE MODE</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h1 class="text-center text-light mb-2">Booking Process</h1>
+        <div class="row">
+            <div class="col-sm">
+                <img src="../media/customer_icons-desk.png" class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+<!-- Modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+     <img src="../media/donate.png" class="responsive"/>
+         <a class="btn btn-primary" class="btn btn-secondary" data-dismiss="modal" id="idNothanks" onclick="document.getElementById('idcash').style.display='none'">No Thanks</a>
+         <a class="btn btn-primary" class="btn btn-secondary" data-dismiss="modal" id="idDonate"   onclick="document.getElementById('idcash2').style.display='none'">Donate</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Get the modal
+var idNothanks = document.getElementById('idNothanks');
+// When the user clicks anywhere outside of the modal, close it
+
+window.onclick = function(event) {
+  if (event.target == idNothanks) {
+     // window.open('main:ordered',"_self")
+      window.open('http://127.0.0.1:8000/ordered/Cash&NoThanks',"_self")
+  }
+
+  var idDonate = document.getElementById('idDonate');
+    if (event.target == idDonate) {
+     // window.open('main:ordered',"_self")
+      window.open('http://127.0.0.1:8000/ordered/Cash&Donate',"_self")
+  }
+}
+</script>
+    {% include "main/footer.html" %}
+{% endblock content %}

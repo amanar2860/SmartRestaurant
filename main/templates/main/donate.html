@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "main/layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="text-center">Donate Food</h3>
+            <span>
+                    <input type="radio" id="donate" name="donate" value="Donate">
+                    <label for="donate">Donate</label><br>
+                    <input type="radio" id="nothanks" name="nothanks" value="No Thanks">
+                    <label for="nothanks">No Thanks</label><br>
+            </span>
+                    <br>
+ <img src="../media/donate.png" class="responsive"/>
+            </div>
+        </div>
+
+    </div>
+
+    {% include "main/footer.html" %}
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "main/layout2.html" %}
+{% block content %}
+    <div class="cart">
+    <h3>Category List</h3>
+        <div class="row">
+            {% for catObj in categorys %}
+                <div class="col-sm-4">
+                    <div class="card mb-3" style="height: fit-content; overflow: auto;">
+                        <img src="../media/{{ catObj.imageurl }}" style="height: 150px;">
+                        <div class="card-body text-center">
+                            <p class="btn-warning">
+                                <a style="text-decoration:none" class="text-white"
+                                                      href="#">{{ catObj.categoryname }} </a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}
